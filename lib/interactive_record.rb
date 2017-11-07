@@ -67,22 +67,27 @@ class InteractiveRecord
     end
 
     def self.find_by(attr_hash) #have some names, fnd it in the db
-      sql = "SELECT * FROM '#{self.table_name}' WHERE "
-      
-      
+      sql = "SELECT * FROM '#{self.table_name}' WHERE id = attr_hash[:id], etc. "
+      Possibile to take the hash apart ? then look for those 
+      attr_hash[:id]
+      attr_hash[:name]
+      attr_hash[:grade]
+
       DB[:conn].execute(sql)
     end
 
-    attr_hash = {
-      id => id
-      name => name
-      grade => grade
-    }
+    # attr_hash = {
+    #   id => id
+    #   name => name
+    #   grade => grade
+    # }
+    # 
+    # self.id = attr_hash[:id]
+    # self.name = attr_hash[:name]
+    # self.grade = attr_hash[:grade]
 
-    self.id = attr_hash(id)
-    self.name = attr_hash[name]
-    self.grade = attr_hash[grade]
-    
+#maybe try a reify_from_row? -- 
+#Spec file 
     # it 'executes the SQL to find a row by the attribute passed into the method' do
     #   Student.new({name: "Susan", grade: 10}).save
     #   expect(Student.find_by({name: "Susan"})).to eq([{"id"=>1, "name"=>"Susan", "grade"=>10, 0=>1, 1=>"Susan", 2=>10}])
