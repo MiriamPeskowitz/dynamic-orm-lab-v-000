@@ -67,7 +67,7 @@ class InteractiveRecord
     end
 
     def self.find_by(attr_hash) #have some names, fnd it in the db
-      sql = "SELECT * FROM '#{self.table_name}' WHERE id = attr_hash[:id], name = attr_hash[:name], grade = attr_hash[:grade]"
+      sql = "SELECT * FROM '#{self.table_name}' WHERE id = attr_hash[:"id"], name = attr_hash[:name], grade = attr_hash[:grade]"
 
       # Possibile to take the hash apart ? then look for these
       # attr_hash[:id]
