@@ -66,10 +66,23 @@ class InteractiveRecord
       DB[:conn].execute(sql)
     end
 
-    def self.find_by(attr_hash)
+    def self.find_by(attr_hash) #have some names, fnd it in the db
       sql = "SELECT * FROM '#{self.table_name}' WHERE "
+      
+      
       DB[:conn].execute(sql)
     end
+
+    attr_hash = {
+      id => id
+      name => name
+      grade => grade
+    }
+
+    self.id = attr_hash(id)
+    self.name = attr_hash[name]
+    self.grade = attr_hash[grade]
+    
     # it 'executes the SQL to find a row by the attribute passed into the method' do
     #   Student.new({name: "Susan", grade: 10}).save
     #   expect(Student.find_by({name: "Susan"})).to eq([{"id"=>1, "name"=>"Susan", "grade"=>10, 0=>1, 1=>"Susan", 2=>10}])
