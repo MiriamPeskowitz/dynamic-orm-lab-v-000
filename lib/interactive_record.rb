@@ -66,22 +66,11 @@ class InteractiveRecord
       DB[:conn].execute(sql)
     end
 
-# use #values 
+# use #values
     def self.find_by(attr_hash)
       value = attr_hash.values.first
       formatted_value = value.class == Fixnum ? value : "'#{value}'"
       sql = "SELECT * FROM #{self.table_name} WHERE #{attr_hash.keys.first} = #{formatted_value}"
       DB[:conn].execute(sql)
     end
-    def self.find_by(attr_hash) #have some names, fnd it in the db
-
-      sql = "SELECT * FROM '#{self.table_name}' WHERE
-      value =
-      binding.pry
-
-
-
-      DB[:conn].execute(sql)
-    end
-# handle different keys -- and different types of values, int and text Access a key without typing the name of the key .first
-make string or use logic
+  end 
