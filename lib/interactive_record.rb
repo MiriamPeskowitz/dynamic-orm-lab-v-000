@@ -1,6 +1,6 @@
 require_relative "../config/environment.rb"
 require 'active_support/inflector' #supports pluralize
-
+require 'pry'
 class InteractiveRecord
 
     def self.table_name
@@ -68,6 +68,7 @@ class InteractiveRecord
 
     def self.find_by(attr_hash) #have some names, fnd it in the db
       sql = "SELECT * FROM '#{self.table_name}' WHERE id = attr_hash[:"id"], name = attr_hash[:name], grade = attr_hash[:grade]"
+      binding.pry
 
       # Possibile to take the hash apart ? then look for these
       # attr_hash[:id]
