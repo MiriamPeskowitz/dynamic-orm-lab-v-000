@@ -67,42 +67,37 @@ class InteractiveRecord
     end
 
     def self.find_by(attr_hash) #have some names, fnd it in the db
-      sql = "SELECT * FROM '#{self.table_name}' WHERE name = attr_hash[:name]"
+      
+      sql = "SELECT * FROM '#{self.table_name}' WHERE 
+      value = 
       binding.pry
 
-      # Possibile to take the hash apart ? then look for these
-      # attr_hash[:id]
-      # attr_hash[:name]
-      # attr_hash[:grade]
+    
 
       DB[:conn].execute(sql)
     end
-
-    # attr_hash = {
-    #   id => id
-    #   name => name
-    #   grade => grade
-    # }
-    #
-    # self.id = attr_hash[:id]
-    # self.name = attr_hash[:name]
-    # self.grade = attr_hash[:grade]
-
-#maybe try a reify_from_row? -- no, that's for a row/values only , not a hash
-  #
-  # self.reify_from_row(row)
-  #   self.new.tap do |o|
-  #     o.id = row[0]
-  #     o.name = row[1] etc
-
-      #Spec file
-    # it 'executes the SQL to find a row by the attribute passed into the method' do
-    #   Student.new({name: "Susan", grade: 10}).save
-    #   expect(Student.find_by({name: "Susan"})).to eq([{"id"=>1, "name"=>"Susan", "grade"=>10, 0=>1, 1=>"Susan", 2=>10}])
-    # end
-    #
-    # it 'accounts for when an attribute value is an integer' do
-    #   Student.new({name: "Susan", grade: 10}).save
-    #   expect(Student.find_by({grade: 10})).to eq([{"id"=>1, "name"=>"Susan", "grade"=>10, 0=>1, 1=>"Susan", 2=>10}])
-    # end
+# handle different keys -- and different types of values, int and text Access a key without typing the name of the key .first
+make string or use logic 
+#     
+#     self.id = attr_hash[:id]
+#     self.name = attr_hash[:name]
+#     self.grade = attr_hash[:grade]
+# 
+# maybe try a reify_from_row? -- no, that's for a row/values only , not a hash
+#   
+#   self.reify_from_row(row)
+#     self.new.tap do |o|
+#       o.id = row[0]
+#       o.name = row[1] etc
+# 
+#       Spec file
+#     it 'executes the SQL to find a row by the attribute passed into the method' do
+#       Student.new({name: "Susan", grade: 10}).save
+#       expect(Student.find_by({name: "Susan"})).to eq([{"id"=>1, "name"=>"Susan", "grade"=>10, 0=>1, 1=>"Susan", 2=>10}])
+#     end
+#     
+#     it 'accounts for when an attribute value is an integer' do
+#       Student.new({name: "Susan", grade: 10}).save
+#       expect(Student.find_by({grade: 10})).to eq([{"id"=>1, "name"=>"Susan", "grade"=>10, 0=>1, 1=>"Susan", 2=>10}])
+#     end
 end
