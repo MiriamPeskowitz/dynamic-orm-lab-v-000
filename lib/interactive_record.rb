@@ -88,13 +88,13 @@ class InteractiveRecord
     # self.grade = attr_hash[:grade]
 
 #maybe try a reify_from_row? -- no, that's for a row/values only , not a hash
-  # 
+  #
   # self.reify_from_row(row)
   #   self.new.tap do |o|
   #     o.id = row[0]
-  #     o.name = row[1] etc 
+  #     o.name = row[1] etc
 
-      #Spec file 
+      #Spec file
     # it 'executes the SQL to find a row by the attribute passed into the method' do
     #   Student.new({name: "Susan", grade: 10}).save
     #   expect(Student.find_by({name: "Susan"})).to eq([{"id"=>1, "name"=>"Susan", "grade"=>10, 0=>1, 1=>"Susan", 2=>10}])
